@@ -5,11 +5,16 @@
 <h2 style="color: green;">Home Templates</h2>
 
 <div>
+    <a href="{% url 'create-room' %}">Create Room</a>
     <div>
         {% for room in rooms %}
             <div style="border: 1px solid black; margin: 10px; padding: 10px;">
+                <a href="{% url 'update-room' room.id %}">Edit</a>
+                <a href="{% url 'delete-room' room.id %}">Delete</a>
+                <span>@{{ room.host.username }}</span>
                 <h3>{{room.id}}--{{ room.name }}</h3>
                 <a href="{% url 'room' room.id %}">Join Room</a>
+                <span>Topic: {{ room.topic.name }}</span>
             </div>
         {% endfor %}
     </div>
