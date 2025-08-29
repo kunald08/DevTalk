@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h2 style="color: green;">Home Templates</h2>
+
+<div>
+    <div>
+        {% for room in rooms %}
+            <div style="border: 1px solid black; margin: 10px; padding: 10px;">
+                <h3>{{room.id}}--{{ room.name }}</h3>
+                <a href="{% url 'room' room.id %}">Join Room</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
